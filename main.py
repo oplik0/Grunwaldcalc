@@ -14,6 +14,7 @@ from DayCalc import DayCalc
 
 import locale
 import json
+
 Window.size = (350, 250)
 class mainApp(App):
     def build(self):

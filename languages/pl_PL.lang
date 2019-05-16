@@ -18,6 +18,6 @@
     "button-text":"Zatwierdź",
     "single-date":"[color=232f52]Ten dzień to [b]{}[/b][/color]",
     "event-date":"[color=232f52]To wydarzenie miało miejsce {}. Ten dzień to [b]{}[/b][/color]",
-    "from-to-date":"[color=232f52]To wydarzenie zaczęło się {}, a dzień tygodnia to [b]{}[/b]. Zakończyło się natomiast {}. To [b]{}[/b][/color]",
+    "from-to-date":"[color=232f52]Początek tego wydarzenia to {}, czyli [b]{}[/b]. Koniec to natomiast {}, czyli[b]{}[/b][/color]",
     "lookup-error":"[color=232f52]Nie znaleziono daty wydarzenia...[/color]"
 }
