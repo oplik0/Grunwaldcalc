@@ -55,14 +55,19 @@ class WikiScrape():
         # old, possibly easier to expand code...
 
         if 'P585' in date_raw:
-            if len(date_raw['P585'])==2:
+            if 1<len(date_raw['P585'])<5 and not re.match(r'\+\d*\-00\-00', date_raw["P585"][0]+date_raw["P585"][1]):
                 self.dates["from"] = date_raw["P585"][0][:date_raw["P585"][0].find('T')]
                 self.dates["to"] = date_raw["P585"][1][:date_raw["P585"][1].find('T')]
             else:
-                self.dates["date"] = date_raw["P585"][:date_raw["P585"].find("T")]
-        elif 'P580' in date_raw and 'P582' in date_raw:
-            self.dates["from"] = date_raw["P580"][:date_raw["P580"].find('T')]
-            self.dates["to"] = date_raw["P582"][:date_raw["P580"].find('T')]
+                if type(date_raw["P585"])==type([]) and not re.match(r'\+\d*\-00\-00', date_raw["P585"][0]):
+                    self.dates["date"] = date_raw["P585"][0][:date_raw["P585"][0].find("T")]
+                elif type(date_raw["P585"])==type("") and not re.match(r'\+\d*\-00\-00', date_raw["P585"]):
+                    self.dates["date"] = date_raw["P585"][:date_raw["P585"].find("T")]
+        else:
+            raise LookupError("Date not found")
+        if 'P580' in date_raw and 'P582' in date_raw and not re.match(r'\+\d*\-00\-00', str(date_raw["P582"]+date_raw["P580"])):
+            self.dates["from"] = str(date_raw["P580"])[:str(date_raw["P580"]).find('T')].replace("'[", "")
+            self.dates["to"] = str(date_raw["P582"])[:str(date_raw["P580"]).find('T')].replace("'[", "")
         else:
             raise LookupError("Date not found")
         return self.dates
