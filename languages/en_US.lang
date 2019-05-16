@@ -15,5 +15,9 @@
     "from-formats":["start time (P580)"],
     "to-formats":["end time (P582)"],
     "hint":"Enter an event or date",
-    "button-text":"Confirm"
+    "button-text":"Confirm",
+    "single-date":"[color=232f52]It's [b]{}[/b][/color]",
+    "event-date":"[color=232f52]It took place on {}. It's [b]{}[/b][/color]",
+    "from-to-date":"[color=232f52]It started ono {} - a [b]{}[/b]. It ended on {} - a [b]{}[/b][/color]",
+    "lookup-error":"[color=232f52]Event date was not found...[/color]"
 }
