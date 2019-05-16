@@ -14,7 +14,7 @@ from DayCalc import DayCalc
 
 import locale
 import json
-
+Window.size = (350, 250)
 class mainApp(App):
     def build(self):
         Window.clearcolor=(228./255., 228./255., 228./255., 1)
@@ -22,8 +22,8 @@ class mainApp(App):
         
         
         Window.minimum_width=300
-        Window.minimum_height=150
-        Window.size = (350, 250)
+        Window.minimum_height=200
+        
 
         self.config = ConfigParser()
         self.config.read("config.ini")
@@ -87,7 +87,7 @@ class mainApp(App):
 
                     self.results_layout.add_widget(self.result_label)
             except LookupError:
-                self.result_label = Label(text=self.language_file["lookup-error"])
+                self.result_label = Label(text=self.language_file["lookup-error"], markup=True)
                 self.results_layout.add_widget(self.result_label)
 
 

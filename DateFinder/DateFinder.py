@@ -59,7 +59,7 @@ class WikiScrape():
                 self.dates["from"] = date_raw["P585"][0][:date_raw["P585"][0].find('T')]
                 self.dates["to"] = date_raw["P585"][1][:date_raw["P585"][1].find('T')]
             else:
-                self.dates["date"] = date_raw["P585"]
+                self.dates["date"] = date_raw["P585"][:date_raw["P585"].find("T")]
         elif 'P580' in date_raw and 'P582' in date_raw:
             self.dates["from"] = date_raw["P580"][:date_raw["P580"].find('T')]
             self.dates["to"] = date_raw["P582"][:date_raw["P580"].find('T')]
