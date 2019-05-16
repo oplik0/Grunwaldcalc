@@ -6,20 +6,20 @@ class Calculate():
         self.date = {}
         self.language = locale.getdefaultlocale()[0]
         try:
-            with open("./languages/"+self.language+".lang", encoding="UTF-8", encoding="UTF-8") as language_file:
+            with open("./languages/"+self.language+".lang", encoding="UTF-8") as language_file:
                 self.language_file = json.load(language_file)
         except FileNotFoundError:
             self.language = "en_US"
-            with open("./languages/"+self.language+".lang", encoding="UTF-8", encoding="UTF-8") as language_file:
+            with open("./languages/"+self.language+".lang", encoding="UTF-8") as language_file:
                 self.language_file = json.load(language_file)
     def changeLanguage(self, language_code="en_US"):
         self.language = language_code
         try:
-            with open("./languages/"+self.language+".lang", encoding="UTF-8", encoding="UTF-8") as language_file:
+            with open("./languages/"+self.language+".lang", encoding="UTF-8") as language_file:
                 self.language_file = json.load(language_file)
         except FileNotFoundError:
             self.language = "en_US"
-            with open("./languages/"+self.language+".lang", encoding="UTF-8", encoding="UTF-8") as language_file:
+            with open("./languages/"+self.language+".lang", encoding="UTF-8") as language_file:
                 self.language_file = json.load(language_file)
             raise FileNotFoundError("Unsupported language")
     def changeDateFormat(self, date_format="DDMMYYYY"):

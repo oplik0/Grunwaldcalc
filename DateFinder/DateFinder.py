@@ -63,12 +63,10 @@ class WikiScrape():
                     self.dates["date"] = date_raw["P585"][0][:date_raw["P585"][0].find("T")]
                 elif type(date_raw["P585"])==type("") and not re.match(r'\+\d*\-00\-00', date_raw["P585"]):
                     self.dates["date"] = date_raw["P585"][:date_raw["P585"].find("T")]
-        else:
-            raise LookupError("Date not found")
         if 'P580' in date_raw and 'P582' in date_raw and not re.match(r'\+\d*\-00\-00', str(date_raw["P582"]+date_raw["P580"])):
             self.dates["from"] = str(date_raw["P580"])[:str(date_raw["P580"]).find('T')].replace("['", "")
             self.dates["to"] = str(date_raw["P582"])[:str(date_raw["P580"]).find('T')].replace("['", "")
-        else:
+        if not ('P580' in date_raw or 'P582' in date_raw) and not 'P585' in date_raw:
             raise LookupError("Date not found")
         return self.dates
     def findEventDate(self, event):
