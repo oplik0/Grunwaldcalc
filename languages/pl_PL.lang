@@ -1,0 +1,23 @@
+{
+    "Day":"Dzień",
+    "Year":"Rok",
+    "Month":"Miesiąc",
+    "weekdays":[
+        "Poniedziałek",
+        "Wtorek",
+        "Środa",
+        "Czwartek",
+        "Piątek",
+        "Sobota",
+        "Niedziela"
+    ],
+    "date-formats":["data (P585)"],
+    "from-formats":["od (P580)"],
+    "to-formats":["do (P582)"],
+    "hint":"Wpisz wydarzenie lub datę",
+    "button-text":"Zatwierdź",
+    "single-date":"[color=232f52]Ten dzień to [b]{}[/b][/color]",
+    "event-date":"[color=232f52]To wydarzenie miało miejsce {}. Ten dzień to [b]{}[/b][/color]",
+    "from-to-date":"[color=232f52]To wydarzenie zaczęło się {}, a dzień tygodnia to [b]{}[/b]. Zakończyło się natomiast {}. To [b]{}[/b][/color]",
+    "lookup-error":"[color=232f52]Nie znaleziono daty wydarzenia...[/color]"
+}

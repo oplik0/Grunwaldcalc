@@ -1,8 +1,27 @@
+import locale
+import json
 class Calculate():
     def __init__(self):
-        self.date_format = 'DDMMYYYY'
+        self.date_format = 'YYYYMMDD'
         self.date = {}
-
+        self.language = locale.getdefaultlocale()[0]
+        try:
+            with open("./languages/"+self.language+".lang") as language_file:
+                self.language_file = json.load(language_file)
+        except FileNotFoundError:
+            self.language = "en_US"
+            with open("./languages/"+self.language+".lang") as language_file:
+                self.language_file = json.load(language_file)
+    def changeLanguage(self, language_code="en_US"):
+        self.language = language_code
+        try:
+            with open("./languages/"+self.language+".lang") as language_file:
+                self.language_file = json.load(language_file)
+        except FileNotFoundError:
+            self.language = "en_US"
+            with open("./languages/"+self.language+".lang") as language_file:
+                self.language_file = json.load(language_file)
+            raise FileNotFoundError("Unsupported language")
     def changeDateFormat(self, date_format="DDMMYYYY"):
         correct_format = ''.join(char for char in date_format if char.isalpha())
         if len(correct_format) in ["DDMMYYYY", "DDYYYYMM", "MMDDYYYY", "MMYYYYDD", "YYYYMMDD", "YYYYDDMM"]:
@@ -38,7 +57,7 @@ class Calculate():
     def convertWeekdayToString(self, weekday=-1):
         if weekday==-1 and self.weekday>=0:
             weekday=self.weekday
-        weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        weekdays = self.language_file["weekdays"]
         return weekdays[weekday-1]
 
     def findWeekday(self, input_date):

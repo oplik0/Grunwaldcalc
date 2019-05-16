@@ -1,0 +1,19 @@
+{
+    "Day":"Day",
+    "Year":"Year",
+    "Month":"Month",
+    "weekdays":[
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+    ],
+    "date-formats":["point in time (P585)"],
+    "from-formats":["start time (P580)"],
+    "to-formats":["end time (P582)"],
+    "hint":"Enter an event or date",
+    "button-text":"Confirm"
+}
