@@ -66,8 +66,8 @@ class WikiScrape():
         else:
             raise LookupError("Date not found")
         if 'P580' in date_raw and 'P582' in date_raw and not re.match(r'\+\d*\-00\-00', str(date_raw["P582"]+date_raw["P580"])):
-            self.dates["from"] = str(date_raw["P580"])[:str(date_raw["P580"]).find('T')].replace("'[", "")
-            self.dates["to"] = str(date_raw["P582"])[:str(date_raw["P580"]).find('T')].replace("'[", "")
+            self.dates["from"] = str(date_raw["P580"])[:str(date_raw["P580"]).find('T')].replace("['", "")
+            self.dates["to"] = str(date_raw["P582"])[:str(date_raw["P580"]).find('T')].replace("['", "")
         else:
             raise LookupError("Date not found")
         return self.dates
