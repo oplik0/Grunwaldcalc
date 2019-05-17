@@ -56,8 +56,8 @@ class WikiScrape():
 
         if 'P585' in date_raw:
             if 1<len(date_raw['P585'])<5 and not re.match(r'\+\d*\-00\-00', date_raw["P585"][0]+date_raw["P585"][1]):
-                self.dates["from"] = date_raw["P585"][0][:date_raw["P585"][0].find('T')]
-                self.dates["to"] = date_raw["P585"][1][:date_raw["P585"][1].find('T')]
+                self.dates["date"] = date_raw["P585"][1][:date_raw["P585"][0].find('T')]
+                #self.dates["to"] = date_raw["P585"][1][:date_raw["P585"][1].find('T')]
             else:
                 if type(date_raw["P585"])==type([]) and not re.match(r'\+\d*\-00\-00', date_raw["P585"][0]):
                     self.dates["date"] = date_raw["P585"][0][:date_raw["P585"][0].find("T")]
