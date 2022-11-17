@@ -14,10 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Package Application
-      uses: JackMcKew/pyinstaller-action-windows@main
+    - name: Test Build Python Exe
+      uses: eric2788/pyinstaller-build@master
       with:
-        path: .
+        main: main
+        artifact: Program
+        use-dependencies: true
+        no-console: true
 
     - uses: actions/upload-artifact@v2
       with:
